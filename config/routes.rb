@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
-  root 'messages#index'
-  resources :messages , except: [:index, :new]
+  # root 'welcome#index'
+  root 'boards#show'
+  resources :messages
+  resources :boards
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

@@ -1,0 +1,29 @@
+
+<%= form_for(@board) do |f| %>
+
+  <%= f.text_field :title %>
+  <%= f.submit class: "btn btn-sm btn-cyan700_rsd" %>
+<% end %>
+<p>
+  <p>
+    <p>
+      <p>
+        
+      </p>
+    </p>
+  </p>
+</p>
+<div class="panel panel-default">
+  <div class="panel-heading">
+  最新FAQ
+  </div>
+    
+  <div class="panel-body">
+    <% @boards.each do |board| %>
+      <%= link_to board.title ,controller: "messages", action: "index", board_id: board.id %>
+      
+      
+      <br>
+    <% end %>
+  </div>
+</div>

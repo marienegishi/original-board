@@ -13,12 +13,21 @@
 
 ActiveRecord::Schema.define(version: 20160615012330) do
 
+  create_table "boards", force: :cascade do |t|
+    t.string   "title"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "messages", force: :cascade do |t|
     t.string   "name"
     t.string   "body"
+    t.integer  "board_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer  "age"
   end
+
+  add_index "messages", ["board_id"], name: "index_messages_on_board_id"
 
 end

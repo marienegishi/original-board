@@ -1,20 +1,23 @@
 class MessagesController < ApplicationController
-  before_action :set_message, only: [:edit, :update, :destroy]
+before_action :set_message, only: [:edit, :update, :destroy]
+
+  # 表示
   def index
-    @message = Message.new
-    # Messageを全て取得する。
-    @messages = Message.all
+    @board = Board.find(params[:board_id])
+    @messages = @board.messages
+    @message = Message.new(board: @board)
   end
 
+  # 書き込み
   def create
     @message = Message.new(message_params)
     if @message.save
-      redirect_to root_path , notice: 'メッセージを保存しました'
+      redirect_to :action => :index, board_id: message_params[:board_id]
     else
       # メッセージが保存できなかった時
-      @messages = Message.all
+      @messages = Message.message_list
       flash.now[:alert] = "メッセージの保存に失敗しました。"
-      render 'index'
+      render :index
     end
   end
   
@@ -39,7 +42,7 @@ class MessagesController < ApplicationController
 
   private
   def message_params
-    params.require(:message).permit(:name, :body, :age)
+    params.require(:message).permit(:name, :body, :age, :board_id)
   end
   
   def set_message

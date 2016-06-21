@@ -5,6 +5,8 @@
 
 body {
   padding-top: 60px;
+  background-color: #87CEFA;
+  font-family: "メイリオ";
 }
 
 section {
@@ -37,7 +39,7 @@ h1 {
 }
 
 h2 {
-  font-size: 1.2em;
+  font-size: 2.2em;
   letter-spacing: -1px;
   margin-bottom: 30px;
   text-align: center;
@@ -46,7 +48,7 @@ h2 {
 }
 
 p {
-  font-size: 1.1em;
+  font-size: 2.1em;
   line-height: 1.7em;
 }
 
@@ -55,7 +57,7 @@ p {
 #logo {
   float: left;
   margin-right: 10px;
-  font-size: 1.7em;
+  font-size: 2.7em;
   color: #fff;
   text-transform: uppercase;
   letter-spacing: -1px;
@@ -67,3 +69,6 @@ p {
   color: #fff;
   text-decoration: none;
 }
+
+a { text-decoration: none;}
+a:hover { text-decoration: underline;}
